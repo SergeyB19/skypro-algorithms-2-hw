@@ -1,6 +1,6 @@
 package pro.sky.java.course2.exception;
 
-public class NullItemException extends RuntimeException {
+public class NullItemException extends Exception {
     public NullItemException() {
     }
 

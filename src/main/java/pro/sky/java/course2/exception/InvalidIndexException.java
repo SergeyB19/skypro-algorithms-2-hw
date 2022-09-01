@@ -1,6 +1,6 @@
 package pro.sky.java.course2.exception;
 
-public class InvalidIndexException extends RuntimeException {
+public class InvalidIndexException extends Exception {
     public InvalidIndexException() {
     }
 

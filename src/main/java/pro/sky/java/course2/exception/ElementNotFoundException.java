@@ -1,6 +1,6 @@
 package pro.sky.java.course2.exception;
 
-public class ElementNotFoundException extends RuntimeException {
+public class ElementNotFoundException extends Exception {
     public ElementNotFoundException() {
     }
 

@@ -21,7 +21,11 @@ public class IntegerListImpl implements IntegerList {
 
     @Override
     public Integer add(Integer item) {
-        validateSize();
+        try {
+            validateSize();
+        } catch (StorageIsFullException e) {
+            throw new RuntimeException(e);
+        }
         validateItem(item);
         storage[size++] = item;
         return item;
@@ -29,7 +33,11 @@ public class IntegerListImpl implements IntegerList {
 
     @Override
     public Integer add(int index, Integer item) {
-        validateSize();
+        try {
+            validateSize();
+        } catch (StorageIsFullException e) {
+            throw new RuntimeException(e);
+        }
         validateItem(item);
         validateIndex(index);
 
@@ -137,11 +145,15 @@ public class IntegerListImpl implements IntegerList {
 
     private void validateItem(Integer item) {
         if (item == null) {
-            throw new NullItemException();
+            try {
+                throw new NullItemException();
+            } catch (NullItemException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
-    private void validateSize() {
+    private void validateSize() throws StorageIsFullException {
         if (size == storage.length) {
             throw new StorageIsFullException();
         }
@@ -149,7 +161,11 @@ public class IntegerListImpl implements IntegerList {
 
     private void validateIndex(int index) {
         if (index < 0 || index > size) {
-            throw new InvalidIndexException();
+            try {
+                throw new InvalidIndexException();
+            } catch (InvalidIndexException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

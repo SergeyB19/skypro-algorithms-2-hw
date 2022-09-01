@@ -1,6 +1,6 @@
 package pro.sky.java.course2.exception;
 
-public class StorageIsFullException extends RuntimeException {
+public class StorageIsFullException extends Exception {
     public StorageIsFullException() {
     }
 
